@@ -3,6 +3,9 @@ package helper
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestOld(t *testing.T) {
@@ -49,4 +52,24 @@ func TestOldV4(t *testing.T) {
 	}
 	// jika menggunakan Error masih melanjutkan ke proses selanjutnya
 	fmt.Println(rName, rOld)
+}
+
+// example Assertion
+func TestOldV5(t *testing.T) {
+	name := "bachtiar"
+	old := 20
+	rName, rOld := Old(name, old)
+	assert.Equal(t, "bachtiar", rName, "Hasilnya harusnya bachtiar")
+	assert.Equal(t, 20, rOld, "Hasilnya harusnya 20")
+	fmt.Println("Dieksekusi")
+}
+
+// example Require
+func TestOldV6(t *testing.T) {
+	name := "bachtiar"
+	old := 20
+	rName, rOld := Old(name, old)
+	require.Equal(t, "bachtiar", rName, "Hasilnya harusnya bachtiar")
+	require.Equal(t, 20, rOld, "Hasilnya harusnya 20")
+	fmt.Println("Dieksekusi")
 }
