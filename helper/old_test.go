@@ -130,3 +130,19 @@ func TestHelloWorldTable(t *testing.T) {
 		})
 	}
 }
+
+// example Subtest
+func BenchmarkSubTest(b *testing.B) {
+	b.Run("sub1", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			result := HelloWord("bachtiar")
+			require.Equal(b, "Hello bachtiar", result)
+		}
+	})
+	b.Run("sub2", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			result := HelloWord("firdaus")
+			require.Equal(b, "Hello firdaus", result)
+		}
+	})
+}
