@@ -146,3 +146,31 @@ func BenchmarkSubTest(b *testing.B) {
 		}
 	})
 }
+
+// example table sub benchmark
+func BenchmarkHelloWorldTable(b *testing.B) {
+	// example struct untuk table test
+	tests := []struct {
+		name    string
+		request string
+		expect  string
+	}{
+		{
+			name:    "sub1",
+			request: "daus",
+			expect:  "Hello daus",
+		}, {
+			name:    "sub2",
+			request: "bachtiar",
+			expect:  "Hello bachtiar",
+		},
+	}
+	for _, test := range tests {
+		b.Run(test.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				result := HelloWord(test.request)
+				assert.Equal(b, test.expect, result)
+			}
+		})
+	}
+}
