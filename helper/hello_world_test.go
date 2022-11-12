@@ -18,3 +18,16 @@ func TestHelloWorldV2(t *testing.T) {
 		panic("Result is not Hello Bachtiar")
 	}
 }
+
+// example benchmark
+func BenchmarkHelloWorldV1(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWord("bachtiar")
+	}
+}
+
+func BenchmarkHelloWorldV2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWord("firdaus")
+	}
+}
