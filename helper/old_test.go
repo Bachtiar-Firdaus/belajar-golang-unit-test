@@ -104,3 +104,29 @@ func TestSubTest(t *testing.T) {
 		require.Equal(t, "Hello firdaus", result)
 	})
 }
+
+// example Table Test
+func TestHelloWorldTable(t *testing.T) {
+	// example struct untuk table test
+	tests := []struct {
+		name    string
+		request string
+		expect  string
+	}{
+		{
+			name:    "sub1",
+			request: "daus",
+			expect:  "Hello daus",
+		}, {
+			name:    "sub2",
+			request: "bachtiar",
+			expect:  "Hello bachtiar",
+		},
+	}
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWord(test.request)
+			assert.Equal(t, test.expect, result)
+		})
+	}
+}
