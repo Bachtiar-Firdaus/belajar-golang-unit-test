@@ -9,6 +9,14 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// example before and after testing
+func TestMain(m *testing.M) {
+	fmt.Println("Sebelum Dilakkukan Testing")
+	// ini untuk menjalankan semua unit test
+	m.Run()
+	fmt.Println("Setelah Dilakkukan Testing")
+}
+
 func TestOld(t *testing.T) {
 	name := "bachtiar"
 	old := 20
