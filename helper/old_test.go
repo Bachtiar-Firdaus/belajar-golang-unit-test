@@ -2,6 +2,7 @@ package helper
 
 import (
 	"fmt"
+	"runtime"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -72,4 +73,14 @@ func TestOldV6(t *testing.T) {
 	require.Equal(t, "bachtiar", rName, "Hasilnya harusnya bachtiar")
 	require.Equal(t, 20, rOld, "Hasilnya harusnya 20")
 	fmt.Println("Dieksekusi")
+}
+
+// example Skip Test
+func TestSkip(t *testing.T) {
+	// runtime disini untuk mengetahui sistem operasi apa yang kita gunakan
+	if runtime.GOOS == "windows" {
+		t.Skip("Unit test tidak bisa jalan di windows")
+	}
+	result := HelloWord("daus")
+	require.Equal(t, "hello daus", result)
 }
